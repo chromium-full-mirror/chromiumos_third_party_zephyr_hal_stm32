@@ -210,8 +210,10 @@ void ll_sys_sleep_clock_source_selection(void)
   ll_intf_cmn_le_select_slp_clk_src((uint8_t)linklayer_slp_clk_src, &freq_value);
 }
 
+#ifndef __ZEPHYR__
 void ll_sys_set_rtl_polling_time(uint8_t rtl_polling_time)
 {
   /* first parameter otInstance *aInstance is unused */
   radio_set_rtl_polling_time(NULL, rtl_polling_time);
 }
+#endif
